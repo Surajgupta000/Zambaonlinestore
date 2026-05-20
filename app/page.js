@@ -63,16 +63,9 @@ export default function Home() {
   const revealRefs = useRef([]);
 
   // --- DATA STRUCTURES ---
-  const menProducts = [
-    { name: "Double Hole Jumbo Penis Sleeve,Reuseble Condom For Men", price: 1999, orig: 2999, off: 33, rating: 4.8, reviews: 234, image: "/mens-toys/men1.jpg", emoji: "🔮", badge: "Best Seller" },
-    { name: "6.2 Inch Double Hole Sleeve With Extra Dots And Spikes For Men", price: 1899, orig: 3299, off: 42, rating: 4.6, reviews: 189, image: "/mens-toys/men2.jpg", emoji: "💜" },
-    { name: "RealTouch Max - Dual Entry Masturbator For Men", price: 799, orig: 1499, off: 47, rating: 4.5, reviews: 412, image: "/mens-toys/men3.jpg", emoji: "💫" },
-    { name: "My Girl Pocket Pussy mini dol For Men", price: 599, orig: 999, off: 40, rating: 4.7, reviews: 567, image: "/mens-toys/men4.jpg", emoji: "💍" },
-    { name: "Penis Enlargement Pump For Men", price: 449, orig: 899, off: 50, rating: 4.4, reviews: 892, image: "/mens-toys/men5.jpg", emoji: "🌊", badge: "Top Pick" },
-    { name: "Masturbator cup 6.5 inch For Men", price: 2299, orig: 3999, off: 42, rating: 4.3, reviews: 156, image: "/mens-toys/men6.jpg", emoji: "⚡" },
-    { name: "zamba electric Beat Stroker for men", price: 1499, orig: 2799, off: 46, rating: 4.9, reviews: 78, image: "/mens-toys/men7.jpg", emoji: "💎" },
-  ];
-
+  // Load first 7 mens and womens products from JSON file (correct image paths)
+  const menProducts = productsData.mens_toys.slice(0, 7);
+  
   const womenProducts = [
     {
       name: "zamba 7 inch remote control vibrating suction dildo for women",
@@ -81,7 +74,7 @@ export default function Home() {
       off: 43,
       rating: 4.8,
       reviews: 234,
-      image: "/allinone/Intimate toys sku id wise images/Sku 1042/1.jpg",
+      image: "/AllinOne/Intimate toys sku id wise images/Sku 1042/1.jpg",
       emoji: "🐰",
       badge: "Best Seller"
     },
@@ -92,7 +85,7 @@ export default function Home() {
       off: 44,
       rating: 4.7,
       reviews: 189,
-      image: "/allinone/Intimate toys sku id wise images/Sku 1051/1.jpg",
+      image: "/AllinOne/Intimate toys sku id wise images/Sku 1051/1.jpg",
       emoji: "🌟",
       badge: null
     },
@@ -103,7 +96,7 @@ export default function Home() {
       off: 53,
       rating: 4.7,
       reviews: 189,
-      image: "/allinone/Intimate toys sku id wise images/Sku 1052/1.jpg",
+      image: "/AllinOne/Intimate toys sku id wise images/Sku 1052/1.jpg",
       emoji: "💨",
       badge: "Top Pick"
     },
@@ -114,7 +107,7 @@ export default function Home() {
       off: 36,
       rating: 4.7,
       reviews: 189,
-      image: "/allinone/Intimate toys sku id wise images/Sku 1068/1.jpg",
+      image: "/AllinOne/Intimate toys sku id wise images/Sku 1068/1.jpg",
       emoji: "🌸",
       badge: null
     },
@@ -125,7 +118,7 @@ export default function Home() {
       off: 40,
       rating: 4.7,
       reviews: 189,
-      image: "/allinone/Intimate toys sku id wise images/Sku 1083/1.jpg",
+      image: "/AllinOne/Intimate toys sku id wise images/Sku 1083/1.jpg",
       emoji: "⚪",
       badge: null
     },
@@ -136,7 +129,7 @@ export default function Home() {
       off: 42,
       rating: 4.7,
       reviews: 189,
-      image: "/allinone/Intimate toys sku id wise images/Sku 1084/1.jpg",
+      image: "/AllinOne/Intimate toys sku id wise images/Sku 1084/1.jpg",
       emoji: "🔫",
       badge: null
     },
@@ -147,7 +140,7 @@ export default function Home() {
       off: 50,
       rating: 4.9,
       reviews: 189,
-      image: "/allinone/Intimate toys sku id wise images/Sku 1089/1.jpg",
+      image: "/AllinOne/Intimate toys sku id wise images/Sku 1089/1.jpg",
       emoji: "🔥",
       badge: null
     }
@@ -188,15 +181,9 @@ export default function Home() {
     }
     cartLoadedRef.current = true;
 
-    // Age Gate Verification Check — persist via localStorage so navigation doesn't re-trigger
-    const alreadyVerified =
-      (typeof window !== "undefined" && window.__zamba_age_verified) ||
-      localStorage.getItem("zamba_age_verified") === "true";
-    if (!alreadyVerified) {
+    // Age Gate Verification Check — reset on reload, persist on client-side routing
+    if (typeof window !== "undefined" && !window.__zamba_age_verified) {
       setShowAgeGate(true);
-    } else {
-      // Restore memory flag so checks within session are fast
-      if (typeof window !== "undefined") window.__zamba_age_verified = true;
     }
 
     // Header Global Scroll Class Trigger
@@ -278,7 +265,7 @@ export default function Home() {
 
   // --- HANDLERS & LOGIC FUNCTIONALITIES ---
   const enterSite = () => {
-    localStorage.setItem("zamba_age_verified", "true");
+    localStorage.removeItem("zamba_age_verified");
     if (typeof window !== "undefined") {
       window.__zamba_age_verified = true;
     }
@@ -487,7 +474,8 @@ export default function Home() {
       </div>
 
       {/* NAVBAR */}
-      <div id="navbar" className={isScrolled ? "scrolled" : ""}>
+      <header className={`sticky-header ${isScrolled ? "scrolled" : ""}`}>
+        <div id="navbar">
         <div className="nav-top">
           <Link href="/" className="nav-logo">
             <div className="logo-icon">💋</div>
@@ -562,7 +550,7 @@ export default function Home() {
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <path d="M16 10a4 4 0 0 1-8 0" />
               </svg>
-              Cart
+              <span className="cart-text">Cart</span>
               <span className={`cart-badge ${pulseCart ? "" : "pulse-animation"}`} id="cartBadge">
                 {cart.length}
               </span>
@@ -665,6 +653,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      </header>
 
       {/* MARQUEE */}
       <div className="marquee-bar">
@@ -691,19 +680,22 @@ export default function Home() {
       {/* HERO */}
       <div className="hero">
         <div className="hero-bg">
+          {/* Fading slide color overlays commented out to keep the background image clean at best quality
           <div className={`hero-slide ${currentSlide === 0 ? "active" : ""}`} id="slide0">
-            <div className="hero-slide-bg" style={{ background: "linear-gradient(135deg, #3D0B6B 0%, #1A0A2E 50%, #4A0E2E 100%)" }}></div>
+            <div className="hero-slide-bg" style={{ background: "linear-gradient(135deg, rgba(61, 11, 107, 0.4) 0%, rgba(26, 10, 46, 0.5) 50%, rgba(74, 14, 46, 0.4) 100%)" }}></div>
             <div className="hero-overlay"></div>
           </div>
           <div className={`hero-slide ${currentSlide === 1 ? "active" : ""}`} id="slide1">
-            <div className="hero-slide-bg" style={{ background: "linear-gradient(135deg, #0D1B4B 0%, #1A0A2E 50%, #3D0B6B 100%)" }}></div>
+            <div className="hero-slide-bg" style={{ background: "linear-gradient(135deg, rgba(13, 27, 75, 0.4) 0%, rgba(26, 10, 46, 0.5) 50%, rgba(61, 11, 107, 0.4) 100%)" }}></div>
             <div className="hero-overlay"></div>
           </div>
           <div className={`hero-slide ${currentSlide === 2 ? "active" : ""}`} id="slide2">
-            <div className="hero-slide-bg" style={{ background: "linear-gradient(135deg, #4A1228 0%, #1A0A2E 50%, #3D0B6B 100%)" }}></div>
+            <div className="hero-slide-bg" style={{ background: "linear-gradient(135deg, rgba(74, 18, 40, 0.4) 0%, rgba(26, 10, 46, 0.5) 50%, rgba(61, 11, 107, 0.4) 100%)" }}></div>
             <div className="hero-overlay"></div>
           </div>
+          */}
         </div>
+        {/* Text, buttons, and badges commented out for now as requested
         <div className="hero-content">
           <div className="hero-tag">🔥 Biggest Sale of the Year · Up to 60% Off</div>
           <h1 className="hero-title">
@@ -721,10 +713,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* HERO IMAGE CARDS — right side */}
         <div className="hero-badges">
 
-          {/* IMAGE 1 - 69 Deal Days */}
           <div className="hero-img-card card-1">
             <div className="hero-img-wrapper">
               <img
@@ -743,7 +733,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* IMAGE 2 - Erogenous Zones */}
           <div className="hero-img-card card-2">
             <div className="hero-img-wrapper">
               <img
@@ -762,7 +751,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* IMAGE 3 - Masturbation in relationship */}
           <div className="hero-img-card card-3">
             <div className="hero-img-wrapper">
               <img
@@ -788,6 +776,7 @@ export default function Home() {
           <div className={`hero-dot ${currentSlide === 1 ? "active" : ""}`} onClick={() => setCurrentSlide(1)}></div>
           <div className={`hero-dot ${currentSlide === 2 ? "active" : ""}`} onClick={() => setCurrentSlide(2)}></div>
         </div>
+        */}
       </div>
 
       {/* COUPONS */}
@@ -891,7 +880,7 @@ export default function Home() {
             <div className="prod-card" key={i}>
               <div className="prod-img">
                 {p.image ? (
-                  <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={p.image} alt={p.name} className="prod-card-img" />
                 ) : (
                   <span className="prod-emoji">{p.emoji}</span>
                 )}
@@ -938,7 +927,7 @@ export default function Home() {
             <div className="prod-card" key={i}>
               <div className="prod-img">
                 {p.image ? (
-                  <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={p.image} alt={p.name} className="prod-card-img" />
                 ) : (
                   <span className="prod-emoji">{p.emoji}</span>
                 )}

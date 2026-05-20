@@ -115,7 +115,7 @@ export default function CoupleToys() {
 
   // --- HANDLERS ---
   const enterSite = () => {
-    localStorage.setItem("zamba_age_verified", "true");
+    localStorage.removeItem("zamba_age_verified");
     if (typeof window !== "undefined") {
       window.__zamba_age_verified = true;
     }
@@ -258,7 +258,8 @@ export default function CoupleToys() {
       </div>
 
       {/* NAVBAR */}
-      <div id="navbar" className={isScrolled ? "scrolled" : ""}>
+      <header className={`sticky-header ${isScrolled ? "scrolled" : ""}`}>
+        <div id="navbar">
         <div className="nav-top">
           <Link href="/" className="nav-logo">
             <div className="logo-icon">💋</div>
@@ -335,7 +336,7 @@ export default function CoupleToys() {
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <path d="M16 10a4 4 0 0 1-8 0" />
               </svg>
-              Cart
+              <span className="cart-text">Cart</span>
               <span className={`cart-badge ${pulseCart ? "" : "pulse-animation"}`} id="cartBadge">
                 {cart.length}
               </span>
@@ -432,6 +433,7 @@ export default function CoupleToys() {
           </div>
         </div>
       </div>
+      </header>
 
       {/* HERO / BANNER SECTION */}
       <section className="hero" style={{ minHeight: "360px", background: "linear-gradient(135deg, #1C0A38 0%, #150529 100%)" }}>
@@ -514,7 +516,7 @@ export default function CoupleToys() {
               <div className="prod-card" key={i}>
                 <div className="prod-img">
                   {p.image ? (
-                    <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <img src={p.image} alt={p.name} className="prod-card-img" />
                   ) : (
                     <span className="prod-emoji">{p.emoji}</span>
                   )}
