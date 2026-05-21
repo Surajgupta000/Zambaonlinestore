@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { FaInstagram, FaTwitter, FaYoutube, FaWhatsapp, FaCcVisa, FaCcMastercard, FaPaypal } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaYoutube, FaWhatsapp, FaFacebook, FaCcVisa, FaCcMastercard, FaPaypal } from "react-icons/fa";
 import Link from "next/link";
 import productsData from "../public/products_classified.json";
 // Custom UPI icon component replacing the missing icon from react-icons/si
@@ -1152,10 +1152,10 @@ export default function Home() {
             </div>
             <p className="footer-tagline">India's most trusted adult pleasure store. Discreet. Authentic. Premium. Your pleasure, our priority.</p>
             <div className="social-icons">
-              <a href="#" className="social-icon" title="Instagram"><FaInstagram size={18} /></a>
-              <a href="#" className="social-icon" title="Twitter"><FaTwitter size={18} /></a>
-              <a href="#" className="social-icon" title="YouTube"><FaYoutube size={18} /></a>
-              <a href="https://wa.me/918866652629" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp"><FaWhatsapp size={18} /></a>
+              <a href="https://www.instagram.com/zambaonlinesell?igsh=bXE2c3lmMzBnbnZ1" target="_blank" rel="noopener noreferrer" className="social-icon" title="Instagram"><FaInstagram size={18} /></a>
+              <a href="https://www.facebook.com/share/1L7iCiPUfy/" target="_blank" rel="noopener noreferrer" className="social-icon" title="Facebook"><FaFacebook size={18} /></a>
+              <a href="https://youtube.com/@zambaonlinestore?si=fnDtdVa5eRhWEfYw" target="_blank" rel="noopener noreferrer" className="social-icon" title="YouTube"><FaYoutube size={18} /></a>
+              <a href="https://wa.me/949427271290" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp"><FaWhatsapp size={18} /></a>
             </div>
             <div className="payment-icons">
               <span className="pay-icon" title="Visa"><FaCcVisa size={20} /></span>
@@ -1207,12 +1207,12 @@ export default function Home() {
             <h4>Contact Us</h4>
             <ul>
               <li>
-                <a href="mailto:support@zambaonlineshop.com" className="footer-mail">
-                  Support Email
+                <a href="mailto:zambaonlineshop@gmail.com" className="footer-mail">
+                  📧 E-mail: zambaonlineshop@gmail.com
                 </a>
               </li>
-              <li><a href="https://wa.me/918866652629" target="_blank" rel="noopener noreferrer">💬 WhatsApp Support: 8866652629</a></li>
-              <li><a href="tel:96622320209">📞 Call Us: 96622320209</a></li>
+              <li><a href="https://wa.me/949427271290" target="_blank" rel="noopener noreferrer">💬 WhatsApp: 94267 27129</a></li>
+              <li><a href="#" style={{ fontSize: "13px" }}>🎥 YouTube: @zambaOnlinestore</a></li>
               <li style={{ marginTop: "12px" }}>
                 <a href="#" style={{ background: "var(--magenta)", color: "#fff", padding: "8px 16px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>
                   📦 Track Your Order
