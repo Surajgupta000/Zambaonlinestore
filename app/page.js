@@ -68,6 +68,7 @@ export default function Home() {
   
   const womenProducts = [
     {
+      sku: 1042,
       name: "zamba 7 inch remote control vibrating suction dildo for women",
       price: 3399,
       orig: 5999,
@@ -79,6 +80,7 @@ export default function Home() {
       badge: "Best Seller"
     },
     {
+      sku: 1051,
       name: "zamba Sucking Rose G Spot Vibrator For Women",
       price: 4499,
       orig: 7999,
@@ -90,6 +92,7 @@ export default function Home() {
       badge: null
     },
     {
+      sku: 1052,
       name: "zamba 10 speed G spot rabbit vibrating dildo",
       price: 2799,
       orig: 5999,
@@ -101,6 +104,7 @@ export default function Home() {
       badge: "Top Pick"
     },
     {
+      sku: 1068,
       name: "Vibrator Rabbit Vibrator G-Spot Vibrator Patting for Women 3 in 1 Clitoris Vibrator Powerful Vibrator Anal Plug Sex Toys Adults",
       price: 4499,
       orig: 6999,
@@ -112,6 +116,7 @@ export default function Home() {
       badge: null
     },
     {
+      sku: 1083,
       name: "10 Modes Wireless Battery Operated Vibrating Egg remote Women Adult sex toy",
       price: 2999,
       orig: 4999,
@@ -123,6 +128,7 @@ export default function Home() {
       badge: null
     },
     {
+      sku: 1084,
       name: "zamba Wireless premium vib massager with remote 10 vibration modes for women or girls",
       price: 3499,
       orig: 5999,
@@ -134,6 +140,7 @@ export default function Home() {
       badge: null
     },
     {
+      sku: 1089,
       name: "zamba Luv Link Silicon Vibrator – App-Controlled Wearable Massager for women",
       price: 2499,
       orig: 4999,
@@ -568,88 +575,28 @@ export default function Home() {
         {/* MEGA MENU */}
         <div className="nav-cats">
           {/* Men's */}
-          <div className={`cat-item ${activeCat === 'mens' ? 'open' : ''}`}>
-            <Link
-              href="/mens-toys"
-              onClick={(e) => {
-                if (e.target.closest('svg') || e.target.tagName.toLowerCase() === 'svg' || e.target.tagName.toLowerCase() === 'polyline') {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveCat(activeCat === 'mens' ? null : 'mens');
-                }
-              }}
-            >
-              Men's Toys <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+          <div className="cat-item">
+            <Link href="/mens-toys">
+              Men's Toys
             </Link>
-            <div className="mega-drop">
-              <div className="drop-title">Men's Pleasure</div>
-              <a href="#">Masturbators</a><a href="#">Penis Sleeves</a><a href="#">Cock Rings</a>
-              <a href="#">Penis Pumps</a><a href="#">Prostate Massagers</a><a href="#">Delay Sprays</a>
-              <a href="#">Sex Dolls</a><a href="#">Male Vibrators</a>
-            </div>
           </div>
           {/* Women's */}
-          <div className={`cat-item ${activeCat === 'womens' ? 'open' : ''}`}>
-            <Link
-              href="/womens-toys"
-              onClick={(e) => {
-                if (e.target.closest('svg') || e.target.tagName.toLowerCase() === 'svg' || e.target.tagName.toLowerCase() === 'polyline') {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveCat(activeCat === 'womens' ? null : 'womens');
-                }
-              }}
-            >
-              Women's Toys <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+          <div className="cat-item">
+            <Link href="/womens-toys">
+              Women's Toys
             </Link>
-            <div className="mega-drop">
-              <div className="drop-title">Women's Pleasure</div>
-              <a href="#">Vibrators</a><a href="#">Dildos</a><a href="#">Rabbit Vibrators</a>
-              <a href="#">G-Spot Vibrators</a><a href="#">Bullet Vibrators</a><a href="#">Wand Massagers</a>
-              <a href="#">Suction Toys</a><a href="#">Kegel Balls</a>
-            </div>
           </div>
           {/* Couples */}
-          <div className={`cat-item ${activeCat === 'couples' ? 'open' : ''}`}>
-            <Link
-              href="/couple-toys"
-              onClick={(e) => {
-                if (e.target.closest('svg') || e.target.tagName.toLowerCase() === 'svg' || e.target.tagName.toLowerCase() === 'polyline') {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveCat(activeCat === 'couples' ? null : 'couples');
-                }
-              }}
-            >
-              Couple Toys <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+          <div className="cat-item">
+            <Link href="/couple-toys">
+              Couple Toys
             </Link>
-            <div className="mega-drop">
-              <div className="drop-title">For Couples</div>
-              <a href="#">Couple Vibrators</a><a href="#">Remote Control Toys</a><a href="#">Strap-On Sets</a>
-              <a href="#">Couple Rings</a><a href="#">Love Eggs</a><a href="#">Massage Candles</a>
-              <a href="#">Fantasy Kits</a>
-            </div>
           </div>
           {/* Vibrators */}
-          <div className={`cat-item ${activeCat === 'vibrators' ? 'open' : ''}`}>
-            <Link
-              href="/vibrators"
-              onClick={(e) => {
-                if (e.target.closest('svg') || e.target.tagName.toLowerCase() === 'svg' || e.target.tagName.toLowerCase() === 'polyline') {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveCat(activeCat === 'vibrators' ? null : 'vibrators');
-                }
-              }}
-            >
-              Vibrators <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+          <div className="cat-item">
+            <Link href="/vibrators">
+              Vibrators
             </Link>
-            <div className="mega-drop">
-              <div className="drop-title">Vibrators</div>
-              <a href="#">Clitoral</a><a href="#">G-Spot</a><a href="#">Wand</a>
-              <a href="#">Rabbit</a><a href="#">Bullet</a><a href="#">Thrusting</a>
-              <a href="#">Rechargeable</a><a href="#">Waterproof</a>
-            </div>
           </div>
         </div>
       </div>
@@ -849,14 +796,14 @@ export default function Home() {
           {[
             { label: "Masturbator", icon: "/masturbators.png", path: "/mens-toys?search=masturbator" },
             { label: "Sex Doll", icon: "/sex-dolls.png", path: "/mens-toys?search=doll" },
-            { label: "Vibrator", icon: "/vibrators.png", path: "/womens-toys?search=vibrator" },
-            { label: "Dildo", icon: "/dildos.png", path: "/womens-toys?search=dildo" },
+            { label: "Vibrator", icon: "/vibrators.png", path: "/vibrators?search=vibrator" },
+            { label: "Dildo", icon: "/dildos.png", path: "/vibrators?search=dildo" },
             { label: "Penis Sleeve", icon: "/penis-sleeves.png", path: "/mens-toys?search=sleeve" },
             { label: "Cock Ring", icon: "/cock-ring.png", path: "/mens-toys?search=ring" },
             { label: "Anal Toy", icon: "/anal-toys.png", path: "/womens-toys?search=anal" },
             { label: "Butt Plug", icon: "/butt-plugs.png", path: "/womens-toys?search=plug" },
-            { label: "BDSM", icon: "/bondage.png", path: "/couple-toys?search=bondage" },
-            { label: "Lubricant", icon: "/lubes-lotions.png", path: "/couple-toys?search=lube" },
+            { label: "BDSM", icon: "/bondage.png", path: "/couple-toys?search=chastity" },
+            { label: "Lubricant", icon: "/lubes-lotions.png", path: "/couple-toys?search=condom" },
           ].map((cat, idx) => (
             <Link href={cat.path} className="cat-icon-item" key={idx}>
               <div className="cat-icon-circle">
@@ -878,30 +825,34 @@ export default function Home() {
         <div className={`products-grid reveal ${visibleElements["men-grid"] ? "visible" : ""}`} data-reveal-id="men-grid" ref={(el) => (revealRefs.current[3] = el)}>
           {menProducts.map((p, i) => (
             <div className="prod-card" key={i}>
-              <div className="prod-img">
-                {p.image ? (
-                  <img src={p.image} alt={p.name} className="prod-card-img" />
-                ) : (
-                  <span className="prod-emoji">{p.emoji}</span>
-                )}
-                <span className="prod-badge-off">-{p.off}%</span>
-                {p.badge ? <span className="prod-badge-best">{p.badge}</span> : <span className="prod-wish">♡</span>}
-              </div>
-              <div className="prod-info">
-                <div className="prod-stars">
-                  <span>
-                    {"★".repeat(Math.floor(p.rating))}
-                    {"☆".repeat(5 - Math.floor(p.rating))}
-                  </span>
-                  <em>
-                    {p.rating} ({p.reviews})
-                  </em>
+              <Link href={`/product/${p.sku}`} style={{ display: "block", flexGrow: 1 }}>
+                <div className="prod-img">
+                  {p.image ? (
+                    <img src={p.image} alt={p.name} className="prod-card-img" />
+                  ) : (
+                    <span className="prod-emoji">{p.emoji}</span>
+                  )}
+                  <span className="prod-badge-off">-{p.off}%</span>
+                  {p.badge ? <span className="prod-badge-best">{p.badge}</span> : <span className="prod-wish">♡</span>}
                 </div>
-                <div className="prod-name">{p.name}</div>
-                <div className="prod-prices">
-                  <span className="prod-price">₹{p.price}</span>
-                  <span className="prod-orig">₹{p.orig}</span>
+                <div className="prod-info">
+                  <div className="prod-stars">
+                    <span>
+                      {"★".repeat(Math.floor(p.rating))}
+                      {"☆".repeat(5 - Math.floor(p.rating))}
+                    </span>
+                    <em>
+                      {p.rating} ({p.reviews})
+                    </em>
+                  </div>
+                  <div className="prod-name">{p.name}</div>
+                  <div className="prod-prices">
+                    <span className="prod-price">₹{p.price}</span>
+                    <span className="prod-orig">₹{p.orig}</span>
+                  </div>
                 </div>
+              </Link>
+              <div style={{ padding: "0 18px 18px 18px" }}>
                 <button className="btn-cart" onClick={() => handleAddToCart(p.name, p.price, p.image || p.emoji)}>
                   🛒 Add to Cart
                 </button>
@@ -925,30 +876,34 @@ export default function Home() {
         <div className={`products-grid reveal ${visibleElements["women-grid"] ? "visible" : ""}`} data-reveal-id="women-grid" ref={(el) => (revealRefs.current[5] = el)}>
           {womenProducts.map((p, i) => (
             <div className="prod-card" key={i}>
-              <div className="prod-img">
-                {p.image ? (
-                  <img src={p.image} alt={p.name} className="prod-card-img" />
-                ) : (
-                  <span className="prod-emoji">{p.emoji}</span>
-                )}
-                <span className="prod-badge-off">-{p.off}%</span>
-                {p.badge ? <span className="prod-badge-best">{p.badge}</span> : <span className="prod-wish">♡</span>}
-              </div>
-              <div className="prod-info">
-                <div className="prod-stars">
-                  <span>
-                    {"★".repeat(Math.floor(p.rating))}
-                    {"☆".repeat(5 - Math.floor(p.rating))}
-                  </span>
-                  <em>
-                    {p.rating} ({p.reviews})
-                  </em>
+              <Link href={`/product/${p.sku}`} style={{ display: "block", flexGrow: 1 }}>
+                <div className="prod-img">
+                  {p.image ? (
+                    <img src={p.image} alt={p.name} className="prod-card-img" />
+                  ) : (
+                    <span className="prod-emoji">{p.emoji}</span>
+                  )}
+                  <span className="prod-badge-off">-{p.off}%</span>
+                  {p.badge ? <span className="prod-badge-best">{p.badge}</span> : <span className="prod-wish">♡</span>}
                 </div>
-                <div className="prod-name">{p.name}</div>
-                <div className="prod-prices">
-                  <span className="prod-price">₹{p.price}</span>
-                  <span className="prod-orig">₹{p.orig}</span>
+                <div className="prod-info">
+                  <div className="prod-stars">
+                    <span>
+                      {"★".repeat(Math.floor(p.rating))}
+                      {"☆".repeat(5 - Math.floor(p.rating))}
+                    </span>
+                    <em>
+                      {p.rating} ({p.reviews})
+                    </em>
+                  </div>
+                  <div className="prod-name">{p.name}</div>
+                  <div className="prod-prices">
+                    <span className="prod-price">₹{p.price}</span>
+                    <span className="prod-orig">₹{p.orig}</span>
+                  </div>
                 </div>
+              </Link>
+              <div style={{ padding: "0 18px 18px 18px" }}>
                 <button className="btn-cart" onClick={() => handleAddToCart(p.name, p.price, p.image || p.emoji)}>
                   🛒 Add to Cart
                 </button>

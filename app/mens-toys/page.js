@@ -184,18 +184,6 @@ export default function MensToys() {
     window.open(`https://wa.me/918866652629?text=${encodedMessage}`, "_blank");
   };
 
-  // --- FILTER & SORT LOGIC ---
-  const filteredProducts = allProducts
-    .filter((p) => p.name.toLowerCase().includes(navSearchVal.toLowerCase()))
-    .filter((p) => p.price <= maxPrice)
-    .sort((a, b) => {
-      if (sortBy === "price-low") return a.price - b.price;
-      if (sortBy === "price-high") return b.price - a.price;
-      if (sortBy === "rating") return b.rating - a.rating;
-      if (sortBy === "reviews") return b.reviews - a.reviews;
-      return 0; // Default
-    });
-
   // Compile flat list of all products for search suggestions
   const allWebsiteProducts = [
     ...(productsData.mens_toys || []),
@@ -211,6 +199,20 @@ export default function MensToys() {
       uniqueWebsiteProducts.push(prod);
     }
   }
+
+  // --- FILTER & SORT LOGIC ---
+  const sourceProducts = navSearchVal.trim() ? uniqueWebsiteProducts : allProducts;
+  const filteredProducts = sourceProducts
+    .filter((p) => p.name.toLowerCase().includes(navSearchVal.toLowerCase()))
+    .filter((p) => p.price <= maxPrice)
+    .sort((a, b) => {
+      if (sortBy === "price-low") return a.price - b.price;
+      if (sortBy === "price-high") return b.price - a.price;
+      if (sortBy === "rating") return b.rating - a.rating;
+      if (sortBy === "reviews") return b.reviews - a.reviews;
+      return 0; // Default
+    });
+
   const suggestedProducts = navSearchVal.trim()
     ? uniqueWebsiteProducts.filter((p) =>
       p.name.toLowerCase().includes(navSearchVal.toLowerCase())
@@ -537,7 +539,7 @@ export default function MensToys() {
 
           {/* Product Count */}
           <div style={{ fontSize: "14px", color: "var(--gray)", fontWeight: "500" }}>
-            Showing <strong style={{ color: "#fff" }}>{filteredProducts.length}</strong> of {allProducts.length} products
+            Showing <strong style={{ color: "#fff" }}>{filteredProducts.length}</strong> {navSearchVal.trim() ? "matching" : "of " + allProducts.length} products
           </div>
         </div>
       </section>
@@ -553,30 +555,34 @@ export default function MensToys() {
           <div className="products-grid">
             {filteredProducts.map((p, i) => (
               <div className="prod-card" key={i}>
-                <div className="prod-img">
-                  {p.image ? (
-                    <img src={p.image} alt={p.name} className="prod-card-img" />
-                  ) : (
-                    <span className="prod-emoji">{p.emoji}</span>
-                  )}
-                  <span className="prod-badge-off">-{p.off}%</span>
-                  {p.badge ? <span className="prod-badge-best">{p.badge}</span> : <span className="prod-wish">♡</span>}
-                </div>
-                <div className="prod-info">
-                  <div className="prod-stars">
-                    <span>
-                      {"★".repeat(Math.floor(p.rating))}
-                      {"☆".repeat(5 - Math.floor(p.rating))}
-                    </span>
-                    <em>
-                      {p.rating} ({p.reviews})
-                    </em>
+                <Link href={`/product/${p.sku}`} style={{ display: "block", flexGrow: 1 }}>
+                  <div className="prod-img">
+                    {p.image ? (
+                      <img src={p.image} alt={p.name} className="prod-card-img" />
+                    ) : (
+                      <span className="prod-emoji">{p.emoji}</span>
+                    )}
+                    <span className="prod-badge-off">-{p.off}%</span>
+                    {p.badge ? <span className="prod-badge-best">{p.badge}</span> : <span className="prod-wish">♡</span>}
                   </div>
-                  <div className="prod-name">{p.name}</div>
-                  <div className="prod-prices">
-                    <span className="prod-price">₹{p.price}</span>
-                    <span className="prod-orig">₹{p.orig}</span>
+                  <div className="prod-info">
+                    <div className="prod-stars">
+                      <span>
+                        {"★".repeat(Math.floor(p.rating))}
+                        {"☆".repeat(5 - Math.floor(p.rating))}
+                      </span>
+                      <em>
+                        {p.rating} ({p.reviews})
+                      </em>
+                    </div>
+                    <div className="prod-name">{p.name}</div>
+                    <div className="prod-prices">
+                      <span className="prod-price">₹{p.price}</span>
+                      <span className="prod-orig">₹{p.orig}</span>
+                    </div>
                   </div>
+                </Link>
+                <div style={{ padding: "0 18px 18px 18px" }}>
                   <button className="btn-cart" onClick={() => handleAddToCart(p.name, p.price, p.image || p.emoji)}>
                     🛒 Add to Cart
                   </button>

@@ -1,0 +1,586 @@
+Selector: /* ===== MEGA MENU CATEGORIES ===== */
+.nav-cats
+Body:
+background: var(--plum2); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 40px; display: flex; justify-content: center; gap: 8px; overflow-x: auto; scrollbar-width: none;
+==============================
+Selector: /* ===== CATEGORY CLICKABLE EMOJI CIRCLES ===== */
+#categories
+Body:
+background: var(--plum);
+==============================
+Selector: /* ===== GRID PRODUCT DISPLAY CARDS ===== */
+.products-section
+Body:
+background: var(--dark-card);
+==============================
+Selector: .products-section.women
+Body:
+background: #1A0635;
+==============================
+Selector: .products-grid
+Body:
+display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+==============================
+Selector: .prod-card
+Body:
+background: var(--plum2); border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden; position: relative;
+  display: flex; flex-direction: column;
+  transition: 0.3s; cursor: pointer;
+==============================
+Selector: .prod-card:hover
+Body:
+transform: translateY(-6px); border-color: rgba(233,30,140,0.3); box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+==============================
+Selector: .prod-img
+Body:
+position: relative; height: 240px; background: #2D1050; display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100%;
+==============================
+Selector: .prod-img .prod-emoji
+Body:
+font-size: 80px; transition: 0.3s; user-select: none;
+==============================
+Selector: .prod-card:hover .prod-emoji
+Body:
+transform: scale(1.1);
+==============================
+Selector: .prod-card-img
+Body:
+width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  transition: transform 0.5s ease;
+==============================
+Selector: .prod-card:hover .prod-card-img
+Body:
+transform: scale(1.05);
+==============================
+Selector: .prod-badge-off
+Body:
+position: absolute; top: 12px; left: 12px; background: var(--coral); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; z-index: 2; text-transform: uppercase;
+==============================
+Selector: .prod-badge-best
+Body:
+position: absolute; top: 12px; right: 12px; background: var(--gold); color: #1A0A2E; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; z-index: 2; text-transform: uppercase;
+==============================
+Selector: .prod-wish
+Body:
+position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 14px; opacity: 0; transition: 0.2s; cursor: pointer; z-index: 3; backdrop-filter: blur(4px);
+==============================
+Selector: .prod-card:hover .prod-wish
+Body:
+opacity: 1;
+==============================
+Selector: .prod-wish:hover
+Body:
+background: var(--magenta); color: #fff;
+==============================
+Selector: .prod-info
+Body:
+padding: 18px; display: flex; flex-direction: column; flex-grow: 1;
+==============================
+Selector: .prod-stars
+Body:
+display: flex; align-items: center; gap: 4px; margin-bottom: 8px;
+==============================
+Selector: .prod-stars span
+Body:
+font-size: 12px; color: var(--gold);
+==============================
+Selector: .prod-stars em
+Body:
+font-size: 12px; color: var(--gray); font-style: normal; margin-left: 4px; font-weight: 500;
+==============================
+Selector: .prod-name
+Body:
+font-size: 14px; font-weight: 600; color: var(--lavender); line-height: 1.4; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 40px;
+==============================
+Selector: .prod-prices
+Body:
+display: flex; align-items: center; gap: 10px; margin-bottom: 16px; margin-top: auto;
+==============================
+Selector: .prod-price
+Body:
+font-size: 19px; font-weight: 700; color: var(--magenta); font-family: var(--font-ui);
+==============================
+Selector: .prod-orig
+Body:
+font-size: 13px; color: var(--gray); text-decoration: line-through;
+==============================
+Selector: .payment-icons
+Body:
+display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+==============================
+Selector: .products-grid
+Body:
+grid-template-columns: repeat(3, 1fr); gap: 32px;
+==============================
+Selector: .products-grid
+Body:
+grid-template-columns: 1fr !important; gap: 28px; width: 100%;
+==============================
+Selector: .products-grid
+Body:
+grid-template-columns: 1fr !important; gap: 24px; width: 100%;
+==============================
+Selector: .prod-img
+Body:
+height: 280px;
+==============================
+Selector: .prod-img .prod-emoji
+Body:
+font-size: 80px;
+==============================
+Selector: .prod-info
+Body:
+padding: 16px;
+==============================
+Selector: .prod-name
+Body:
+font-size: 13px; height: auto; margin-bottom: 10px;
+==============================
+Selector: .prod-price
+Body:
+font-size: 18px;
+==============================
+Selector: .products-grid
+Body:
+grid-template-columns: 1fr !important; gap: 20px;
+==============================
+Selector: /* ==========================================================================
+   ===== PRODUCT DETAILS PAGE RESPONSIVE STYLING =====
+   ========================================================================== */
+
+.product-page-breadcrumb
+Body:
+padding: 20px 40px 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: var(--gray);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+==============================
+Selector: .product-page-container
+Body:
+padding: 24px 40px 80px;
+  max-width: 1440px;
+  margin: 0 auto;
+==============================
+Selector: .product-grid
+Body:
+display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+==============================
+Selector: .product-gallery
+Body:
+display: flex;
+  flex-direction: column;
+  gap: 16px;
+==============================
+Selector: .product-main-img-box
+Body:
+position: relative;
+  background: var(--plum2);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+==============================
+Selector: .product-main-img-box img
+Body:
+width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 24px;
+  transition: transform 0.4s ease;
+==============================
+Selector: .product-main-img-box img:hover
+Body:
+transform: scale(1.05);
+==============================
+Selector: .product-emoji-fallback
+Body:
+font-size: 160px;
+==============================
+Selector: .product-thumbnail-strip
+Body:
+display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 0;
+  scrollbar-width: thin;
+==============================
+Selector: .product-thumbnail-btn
+Body:
+width: 80px;
+  height: 80px;
+  background: var(--plum2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+  flex-shrink: 0;
+  opacity: 0.65;
+==============================
+Selector: .product-thumbnail-btn.active
+Body:
+border: 2px solid var(--magenta);
+  opacity: 1;
+==============================
+Selector: .product-thumbnail-btn:hover
+Body:
+opacity: 1;
+==============================
+Selector: .product-info-col
+Body:
+display: flex;
+  flex-direction: column;
+  gap: 24px;
+==============================
+Selector: .product-title
+Body:
+font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #fff;
+==============================
+Selector: .product-rating-box
+Body:
+display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+==============================
+Selector: .product-price-box
+Body:
+display: flex;
+  align-items: baseline;
+  gap: 16px;
+  background: rgba(255,255,255,0.02);
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.04);
+==============================
+Selector: .product-price-amount
+Body:
+font-size: 32px;
+  font-weight: 800;
+  color: var(--magenta);
+  font-family: var(--font-ui);
+  text-shadow: 0 0 12px rgba(233,30,140,0.3);
+==============================
+Selector: .product-price-original
+Body:
+font-size: 16px;
+  color: var(--gray);
+  text-decoration: line-through;
+==============================
+Selector: .product-price-saving
+Body:
+font-size: 13px;
+  font-weight: 700;
+  color: #22c55e;
+  background: rgba(34,197,94,0.1);
+  padding: 4px 10px;
+  border-radius: 50px;
+==============================
+Selector: .product-spec-grid
+Body:
+display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: var(--plum2);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.04);
+==============================
+Selector: .product-coupons-box
+Body:
+display: flex;
+  flex-direction: column;
+  gap: 10px;
+==============================
+Selector: .product-coupons-title
+Body:
+font-size: 12px;
+  font-weight: 700;
+  color: var(--gray);
+  text-transform: uppercase;
+==============================
+Selector: .product-coupons-strip
+Body:
+display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+==============================
+Selector: .product-coupons-strip::-webkit-scrollbar
+Body:
+display: none;
+==============================
+Selector: .product-coupon-badge
+Body:
+flex-shrink: 0;
+  background: rgba(233,30,140,0.05);
+  border: 1.5px dashed rgba(233,30,140,0.3);
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+==============================
+Selector: .product-coupon-badge:hover
+Body:
+background: rgba(233,30,140,0.08);
+==============================
+Selector: .product-coupon-code
+Body:
+font-family: var(--font-ui);
+  font-weight: 700;
+  color: var(--magenta);
+  font-size: 13px;
+==============================
+Selector: .product-coupon-status
+Body:
+font-size: 11px;
+  color: var(--gray);
+==============================
+Selector: .product-action-row
+Body:
+display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+==============================
+Selector: .product-action-buttons-wrap
+Body:
+display: flex;
+  gap: 12px;
+==============================
+Selector: .product-qty-selector
+Body:
+display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 0 8px;
+==============================
+Selector: .product-qty-btn
+Body:
+background: none;
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+==============================
+Selector: .product-qty-btn:hover
+Body:
+background: rgba(255,255,255,0.05);
+==============================
+Selector: .product-qty-value
+Body:
+width: 32px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-ui);
+==============================
+Selector: .product-btn-cart
+Body:
+flex: 1;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--magenta);
+  background: rgba(233,30,140,0.1);
+  color: var(--magenta);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-ui);
+==============================
+Selector: .product-btn-cart:hover
+Body:
+background: var(--magenta);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(233,30,140,0.3);
+==============================
+Selector: .product-btn-whatsapp
+Body:
+width: 100%;
+  background: #25D366;
+  color: #fff;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.2);
+==============================
+Selector: .product-btn-whatsapp:hover
+Body:
+transform: translateY(-1.5px);
+  box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+  opacity: 0.95;
+==============================
+Selector: .product-trust-grid
+Body:
+display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 20px;
+  margin-top: 8px;
+==============================
+Selector: .product-main-img-box
+Body:
+height: 440px;
+==============================
+Selector: .product-info-col
+Body:
+text-align: center;
+    align-items: center;
+==============================
+Selector: .product-rating-box
+Body:
+justify-content: center;
+==============================
+Selector: .product-price-box
+Body:
+justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+==============================
+Selector: .product-spec-grid
+Body:
+width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+==============================
+Selector: .product-coupons-box
+Body:
+width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+==============================
+Selector: .product-coupons-strip
+Body:
+justify-content: center;
+==============================
+Selector: .product-action-row
+Body:
+width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+==============================
+Selector: .product-trust-grid
+Body:
+width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+==============================
+Selector: #related-products .section-header
+Body:
+text-align: center !important;
+==============================
+Selector: .product-page-container
+Body:
+padding: 16px 24px 60px;
+==============================
+Selector: .product-title
+Body:
+font-size: 28px;
+==============================
+Selector: .product-trust-grid
+Body:
+grid-template-columns: 1fr;
+    gap: 16px;
+==============================
+Selector: .product-page-container
+Body:
+padding: 12px 16px 48px;
+==============================
+Selector: .product-main-img-box
+Body:
+height: 300px;
+==============================
+Selector: .product-main-img-box img
+Body:
+padding: 12px;
+==============================
+Selector: .product-emoji-fallback
+Body:
+font-size: 100px;
+==============================
+Selector: .product-info-col
+Body:
+gap: 16px;
+==============================
+Selector: .product-title
+Body:
+font-size: 24px;
+==============================
+Selector: .product-price-box
+Body:
+flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 12px 16px;
+==============================
+Selector: .product-price-amount
+Body:
+font-size: 28px;
+==============================
+Selector: .product-spec-grid
+Body:
+grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+==============================
+Selector: .product-action-buttons-wrap
+Body:
+flex-direction: column;
+    gap: 12px;
+==============================
+Selector: .product-qty-selector
+Body:
+justify-content: space-between;
+    padding: 8px 16px;
+==============================
+Selector: .product-btn-cart, .product-btn-whatsapp
+Body:
+padding: 14px;
+    font-size: 14px;
+==============================

@@ -172,18 +172,6 @@ export default function WomensToys() {
     window.open(`https://wa.me/918866652629?text=${encodedMessage}`, "_blank");
   };
 
-  // --- FILTER & SORT LOGIC ---
-  const filteredProducts = allProducts
-    .filter((p) => p.name.toLowerCase().includes(navSearchVal.toLowerCase()))
-    .filter((p) => p.price <= maxPrice)
-    .sort((a, b) => {
-      if (sortBy === "price-low") return a.price - b.price;
-      if (sortBy === "price-high") return b.price - a.price;
-      if (sortBy === "rating") return b.rating - a.rating;
-      if (sortBy === "reviews") return b.reviews - a.reviews;
-      return 0; // Default
-    });
-
   // Compile flat list of all products for search suggestions
   const allWebsiteProducts = [
     ...(productsData.mens_toys || []),
@@ -199,6 +187,20 @@ export default function WomensToys() {
       uniqueWebsiteProducts.push(prod);
     }
   }
+
+  // --- FILTER & SORT LOGIC ---
+  const sourceProducts = navSearchVal.trim() ? uniqueWebsiteProducts : allProducts;
+  const filteredProducts = sourceProducts
+    .filter((p) => p.name.toLowerCase().includes(navSearchVal.toLowerCase()))
+    .filter((p) => p.price <= maxPrice)
+    .sort((a, b) => {
+      if (sortBy === "price-low") return a.price - b.price;
+      if (sortBy === "price-high") return b.price - a.price;
+      if (sortBy === "rating") return b.rating - a.rating;
+      if (sortBy === "reviews") return b.reviews - a.reviews;
+      return 0; // Default
+    });
+
   const suggestedProducts = navSearchVal.trim()
     ? uniqueWebsiteProducts.filter((p) =>
         p.name.toLowerCase().includes(navSearchVal.toLowerCase())
@@ -374,89 +376,31 @@ export default function WomensToys() {
         {/* MEGA MENU */}
         <div className="nav-cats">
           {/* Men's */}
-          <div className={`cat-item ${activeCat === 'mens' ? 'open' : ''}`}>
-            <Link
-              href="/mens-toys"
-              onClick={(e) => {
-                if (e.target.closest('svg') || e.target.tagName.toLowerCase() === 'svg' || e.target.tagName.toLowerCase() === 'polyline') {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveCat(activeCat === 'mens' ? null : 'mens');
-                }
-              }}
-            >
-              Men's Toys <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+          <div className="cat-item">
+            <Link href="/mens-toys">
+              Men's Toys
             </Link>
-            <div className="mega-drop">
-              <div className="drop-title">Men's Pleasure</div>
-              <a href="#">Masturbators</a><a href="#">Penis Sleeves</a><a href="#">Cock Rings</a>
-              <a href="#">Penis Pumps</a><a href="#">Prostate Massagers</a><a href="#">Delay Sprays</a>
-              <a href="#">Sex Dolls</a><a href="#">Male Vibrators</a>
-            </div>
           </div>
           {/* Women's */}
-          <div className={`cat-item ${activeCat === 'womens' ? 'open' : ''}`}>
+          <div className="cat-item">
             <Link
               href="/womens-toys"
               style={{ borderBottomColor: "var(--magenta)", color: "#fff" }}
-              onClick={(e) => {
-                if (e.target.closest('svg') || e.target.tagName.toLowerCase() === 'svg' || e.target.tagName.toLowerCase() === 'polyline') {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveCat(activeCat === 'womens' ? null : 'womens');
-                }
-              }}
             >
-              Women's Toys <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+              Women's Toys
             </Link>
-            <div className="mega-drop">
-              <div className="drop-title">Women's Pleasure</div>
-              <a href="#">Vibrators</a><a href="#">Dildos</a><a href="#">Rabbit Vibrators</a>
-              <a href="#">G-Spot Vibrators</a><a href="#">Bullet Vibrators</a><a href="#">Wand Massagers</a>
-              <a href="#">Suction Toys</a><a href="#">Kegel Balls</a>
-            </div>
           </div>
           {/* Couples */}
-          <div className={`cat-item ${activeCat === 'couples' ? 'open' : ''}`}>
-            <Link
-              href="/couple-toys"
-              onClick={(e) => {
-                if (e.target.closest('svg') || e.target.tagName.toLowerCase() === 'svg' || e.target.tagName.toLowerCase() === 'polyline') {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveCat(activeCat === 'couples' ? null : 'couples');
-                }
-              }}
-            >
-              Couple Toys <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+          <div className="cat-item">
+            <Link href="/couple-toys">
+              Couple Toys
             </Link>
-            <div className="mega-drop">
-              <div className="drop-title">For Couples</div>
-              <a href="#">Couple Vibrators</a><a href="#">Remote Control Toys</a><a href="#">Strap-On Sets</a>
-              <a href="#">Couple Rings</a><a href="#">Love Eggs</a><a href="#">Massage Candles</a>
-              <a href="#">Fantasy Kits</a>
-            </div>
           </div>
           {/* Vibrators */}
-          <div className={`cat-item ${activeCat === 'vibrators' ? 'open' : ''}`}>
-            <Link
-              href="/vibrators"
-              onClick={(e) => {
-                if (e.target.closest('svg') || e.target.tagName.toLowerCase() === 'svg' || e.target.tagName.toLowerCase() === 'polyline') {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveCat(activeCat === 'vibrators' ? null : 'vibrators');
-                }
-              }}
-            >
-              Vibrators <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+          <div className="cat-item">
+            <Link href="/vibrators">
+              Vibrators
             </Link>
-            <div className="mega-drop">
-              <div className="drop-title">Vibrators</div>
-              <a href="#">Clitoral</a><a href="#">G-Spot</a><a href="#">Wand</a>
-              <a href="#">Rabbit</a><a href="#">Bullet</a><a href="#">Thrusting</a>
-              <a href="#">Rechargeable</a><a href="#">Waterproof</a>
-            </div>
           </div>
         </div>
       </div>
@@ -525,7 +469,7 @@ export default function WomensToys() {
 
           {/* Product Count */}
           <div style={{ fontSize: "14px", color: "var(--gray)", fontWeight: "500" }}>
-            Showing <strong style={{ color: "#fff" }}>{filteredProducts.length}</strong> of {allProducts.length} products
+            Showing <strong style={{ color: "#fff" }}>{filteredProducts.length}</strong> {navSearchVal.trim() ? "matching" : "of " + allProducts.length} products
           </div>
         </div>
       </section>
@@ -541,30 +485,34 @@ export default function WomensToys() {
           <div className="products-grid">
             {filteredProducts.map((p, i) => (
               <div className="prod-card" key={i}>
-                <div className="prod-img">
-                  {p.image ? (
-                    <img src={p.image} alt={p.name} className="prod-card-img" />
-                  ) : (
-                    <span className="prod-emoji">{p.emoji}</span>
-                  )}
-                  <span className="prod-badge-off">-{p.off}%</span>
-                  {p.badge ? <span className="prod-badge-best">{p.badge}</span> : <span className="prod-wish">♡</span>}
-                </div>
-                <div className="prod-info">
-                  <div className="prod-stars">
-                    <span>
-                      {"★".repeat(Math.floor(p.rating))}
-                      {"☆".repeat(5 - Math.floor(p.rating))}
-                    </span>
-                    <em>
-                      {p.rating} ({p.reviews})
-                    </em>
+                <Link href={`/product/${p.sku}`} style={{ display: "block", flexGrow: 1 }}>
+                  <div className="prod-img">
+                    {p.image ? (
+                      <img src={p.image} alt={p.name} className="prod-card-img" />
+                    ) : (
+                      <span className="prod-emoji">{p.emoji}</span>
+                    )}
+                    <span className="prod-badge-off">-{p.off}%</span>
+                    {p.badge ? <span className="prod-badge-best">{p.badge}</span> : <span className="prod-wish">♡</span>}
                   </div>
-                  <div className="prod-name">{p.name}</div>
-                  <div className="prod-prices">
-                    <span className="prod-price">₹{p.price}</span>
-                    <span className="prod-orig">₹{p.orig}</span>
+                  <div className="prod-info">
+                    <div className="prod-stars">
+                      <span>
+                        {"★".repeat(Math.floor(p.rating))}
+                        {"☆".repeat(5 - Math.floor(p.rating))}
+                      </span>
+                      <em>
+                        {p.rating} ({p.reviews})
+                      </em>
+                    </div>
+                    <div className="prod-name">{p.name}</div>
+                    <div className="prod-prices">
+                      <span className="prod-price">₹{p.price}</span>
+                      <span className="prod-orig">₹{p.orig}</span>
+                    </div>
                   </div>
+                </Link>
+                <div style={{ padding: "0 18px 18px 18px" }}>
                   <button className="btn-cart" onClick={() => handleAddToCart(p.name, p.price, p.image || p.emoji)}>
                     🛒 Add to Cart
                   </button>
