@@ -760,12 +760,23 @@ footer { background: #0D0520; border-top: 1px solid rgba(255,255,255,0.06); padd
   .nav-top { padding: 0 24px; }
   .nav-cats { padding: 0 24px; justify-content: flex-start; }
   
-  .hero { min-height: unset; height: auto; width: 100%; aspect-ratio: 1536 / 2302; }
+  .hero {
+    min-height: unset;
+    height: auto;
+    width: 100%;
+    /* aspect ratio matches the mobile banner image (portrait) */
+    aspect-ratio: 1536 / 2302;
+  }
   .hero-bg {
     background-image: url('/mobile-size%20banner.png');
     background-attachment: scroll;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center top;
+    background-repeat: no-repeat;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
   .hero-content { max-width: 550px; padding: 60px 24px; }
   .hero-title { font-size: 46px; }
@@ -797,8 +808,24 @@ footer { background: #0D0520; border-top: 1px solid rgba(255,255,255,0.06); padd
   .mega-drop { width: auto; max-width: 280px; position: fixed; top: auto; left: 20px; right: 20px; }
 
   /* Hero interface cleanups */
-  .hero { min-height: unset; height: auto; aspect-ratio: 1536 / 2302; }
-  .hero-bg { background-attachment: scroll; }
+  .hero {
+    min-height: unset;
+    height: auto;
+    aspect-ratio: 1536 / 2302;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    background-image: url('/mobile-size%20banner.png');
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
   .hero-content { max-width: 100%; text-align: center; margin: 0 auto; padding: 48px 24px; }
   .hero-sub { margin-left: auto; margin-right: auto; font-size: 16px; }
   .hero-btns { justify-content: center; }
@@ -828,8 +855,24 @@ footer { background: #0D0520; border-top: 1px solid rgba(255,255,255,0.06); padd
   .nav-cats { padding: 0 14px; }
   .cat-item > a { padding: 10px 6px; font-size: 10px; }
 
-  .hero { min-height: unset; height: auto; aspect-ratio: 1536 / 2302; }
-  .hero-bg { background-attachment: scroll; }
+  .hero {
+    min-height: unset;
+    height: auto;
+    aspect-ratio: 1536 / 2302;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    background-image: url('/mobile-size%20banner.png');
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
   .hero-title { font-size: 32px; }
   .hero-sub { font-size: 14px; line-height: 1.5; }
   .btn-primary, .btn-outline { width: 100%; justify-content: center; padding: 14px; }

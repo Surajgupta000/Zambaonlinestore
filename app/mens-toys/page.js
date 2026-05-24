@@ -493,7 +493,7 @@ export default function MensToys() {
       >
         {/* Full HD Background Image */}
         <img
-          src="/mensbg.webp"
+          src="/AllinOne/men-1.jpg"
           alt="Men's Pleasure Toys Banner"
           style={{
             position: "absolute",

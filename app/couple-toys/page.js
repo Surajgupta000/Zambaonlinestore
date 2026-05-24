@@ -396,7 +396,7 @@ export default function CoupleToys() {
       >
         {/* Full HD Background Image */}
         <img
-          src="/couplebg.jpg"
+          src="/AllinOne/cou-4.jpg"
           alt="Couple Toys Banner"
           style={{
             position: "absolute",

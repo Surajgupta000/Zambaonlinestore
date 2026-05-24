@@ -396,7 +396,7 @@ export default function Vibrators() {
       >
         {/* Full HD Background Image */}
         <img
-          src="/vibbg.jpg"
+          src="/AllinOne/vib-2.jpg"
           alt="Vibrators Collection Banner"
           style={{
             position: "absolute",
