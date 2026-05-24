@@ -380,8 +380,45 @@ export default function CoupleToys() {
       </header>
 
       {/* HERO / BANNER SECTION */}
-      <section className="hero" style={{ minHeight: "360px", background: "linear-gradient(135deg, #1C0A38 0%, #150529 100%)" }}>
-        <div className="hero-content" style={{ margin: "0 auto", textAlign: "center", zIndex: 10 }}>
+      <section
+        className="hero"
+        style={{
+          position: "relative",
+          minHeight: "480px",
+          height: "auto",
+          aspectRatio: "1920 / 1080",
+          maxHeight: "600px",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {/* Full HD Background Image */}
+        <img
+          src="/couplebg.jpg"
+          alt="Couple Toys Banner"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            zIndex: 0,
+          }}
+        />
+        {/* Dark gradient overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(135deg, rgba(28,10,56,0.85) 0%, rgba(21,5,41,0.68) 50%, rgba(0,0,0,0.45) 100%)",
+            zIndex: 1,
+          }}
+        />
+        {/* Text Content */}
+        <div className="hero-content" style={{ position: "relative", zIndex: 2, margin: "0 auto", textAlign: "center" }}>
           <span className="hero-tag">For Couples</span>
           <h1 className="hero-title" style={{ fontSize: "44px" }}>Couple Toys</h1>
           <p className="hero-sub" style={{ margin: "0 auto", fontSize: "16px" }}>
